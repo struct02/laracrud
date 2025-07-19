@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::get('/about', function(){
 
-return view('about');
+return view('about', ["greetings"=>"Good morning"]);
 
 });
 
