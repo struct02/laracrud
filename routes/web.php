@@ -13,3 +13,11 @@ return view('about', ["greetings"=>"Good morning"]);
 });
 
 
+Route::get('/team', function(){
+
+return view('ourteam.index');
+
+});
+
+
+
