@@ -10,8 +10,8 @@
     <header>
 
         <nav>
-        <a href="/about"></a>
-        <a href="/team"></a>
+        <a href="/about">About us</a>
+        <a href="/team">Our team</a>
         </nav>
     </header>
 

@@ -20,4 +20,10 @@ return view('ourteam.index');
 });
 
 
+Route::get('/create', function(){
+
+return view('ourteam.create');
+
+});
+
 
