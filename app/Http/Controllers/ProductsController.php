@@ -17,8 +17,8 @@ class ProductsController extends Controller
 
         $post = new Product();
         $post->name = $request->prodname;
-        $post->description = $request->prodq;
-        $post->quantity = $request->proddesc;
+        $post->description = $request->proddesc;
+        $post->quantity = $request->prodq;
         $post->save();
         return back()->with('post_created', 'Post created successfully');
 

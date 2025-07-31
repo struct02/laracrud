@@ -15,6 +15,7 @@
         <a href="/about">About us</a>
         <a href="/team">Our team</a>
         <a href="/create">Create Member</a>
+         <a href="/participant">New Participant</a>
         </nav>
     </header>
 

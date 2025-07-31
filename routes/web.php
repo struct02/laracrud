@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ParticipantController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,4 +32,9 @@ Route::get('/create', [ProductsController::class, 'addProduct']);
 
 // 
 Route::post('/create-post', [ProductsController::class, 'createProduct'])->name('post.create');
+
+
+Route::get('/participant', [ParticipantController::class, 'addParticipant']);
+
+Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
 
