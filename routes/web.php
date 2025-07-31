@@ -38,3 +38,5 @@ Route::get('/participant', [ParticipantController::class, 'addParticipant']);
 
 Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
 
+Route::get('/participants', [ParticipantController::class, 'viewParticipants']);
+

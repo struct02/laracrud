@@ -21,4 +21,13 @@ class ParticipantController extends Controller
         return back()->with('post_created', 'Post created successfully');
 
     }
+
+
+    
+     public function viewParticipants(){
+
+        $part = Participant::orderBy('id','DESC')->get();
+        return view('ourteam.allparticipants', compact('part'));
+        //compact in this context takes the variable 'part' and displays the value in a table
+    }
 }
