@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\Product;
 
 class ProductsController extends Controller
 {
@@ -16,10 +16,11 @@ class ProductsController extends Controller
     public function createProduct(Request $request){
 
         $post = new Product();
-        $post->prodname = $request->prodname;
-        $post->prodq = $request->prodq;
-        $post->proddesc = $request->proddesc;
+        $post->name = $request->prodname;
+        $post->description = $request->prodq;
+        $post->quantity = $request->proddesc;
         $post->save();
+        return back()->with('post_created', 'Post created successfully');
 
     }
 }

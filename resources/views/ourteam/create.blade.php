@@ -1,17 +1,24 @@
 <x-layout>
 Add to database
 
+<div class="w-50 text-center mx-auto d-block">
+    @if(Session::has('post_created'))
 
-<form method="POST">
+    <div class="alert alert-success mx-auto" role="alert">
+        {{Session::get('post_created')}}
+    </div>
+    @endif
+</div>
+<form method="POST" action="{{route('post.create')}}">
 @csrf
 <div class="w-50 mx-auto mt-5">
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Product Name</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" name="prodname" placeholder="">
+  <input type="text" class="form-control" id="exampleFormControlInput1" name="prodname" placeholder="">
 </div>
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Product Quantity</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" name="prodq" placeholder="">
+  <input type="text" class="form-control" id="exampleFormControlInput1" name="prodq" placeholder="">
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Product Description</label>

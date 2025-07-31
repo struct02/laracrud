@@ -29,3 +29,6 @@ return view('ourteam.index');
 
 Route::get('/create', [ProductsController::class, 'addProduct']);
 
+// 
+Route::post('/create-post', [ProductsController::class, 'createProduct'])->name('post.create');
+
