@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,10 +21,11 @@ return view('ourteam.index');
 });
 
 
-Route::get('/create', function(){
+// Route::get('/create', function(){
 
-return view('ourteam.create');
+// return view('ourteam.create');
 
-});
+// });
 
+Route::get('/create', [ProductsController::class, 'addProduct']);
 
