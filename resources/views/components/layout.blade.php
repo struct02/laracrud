@@ -6,17 +6,29 @@
     <title>Laravel Crud</title>
   {{-- @vite('resources/css/app.css')  --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
 
-        <nav>
-        <a href="/about">About us</a>
-        <a href="/team">Our team</a>
-        <a href="/create">Create Member</a>
-         <a href="/participant">New Participant</a>
-        </nav>
+    
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/about">About Us</a>
+      <a class="nav-item nav-link" href="/team">Our team</a>
+      <a class="nav-item nav-link" href="/create">Create Member</a>
+      <a class="nav-item nav-link" href="/participant">New Participant</a>
+    </div>
+  </div>
+</nav>
     </header>
 
     <main class="container text-center">
