@@ -26,6 +26,12 @@
       <a class="nav-item nav-link" href="/team">Our team</a>
       <a class="nav-item nav-link" href="/create">Create Member</a>
       <a class="nav-item nav-link" href="/participant">New Participant</a>
+       <a class="nav-item nav-link" href="/login">Login</a>
+       <a class="nav-item nav-link" href="/register">Register</a>
+
+      {{-- This route was taking from the web.php file it is unique name given to the route, it can be anything even a single word instead show.login show or show1, etc. --}}
+        <a class="nav-item nav-link" href="{{route('show.login')}}">Test Route</a>
+
     </div>
   </div>
 </nav>
