@@ -23,6 +23,8 @@ return view('ourteam.index');
 });
 
 
+
+
 // Route::get('/create', function(){
 
 // return view('ourteam.create');
@@ -53,5 +55,5 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-//End of route implementation for various pages as well as login and register pages, the Route:post register and Route;post login were not implemented at this point
+//End of route implementation for various pages as well as login and register pages, the Route:post register and Route:post login were not implemented at this point
 // This is a boilerplate to spawn up simple route pages. No Authentication implemented at this point
