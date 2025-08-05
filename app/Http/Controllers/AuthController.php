@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -49,7 +50,22 @@ class AuthController extends Controller
 
   public function login (Request $request)
   {
+        $validated = $request->validate([
     
+        'email' => 'required|email',
+        'password' => 'required|string'
+    ]);
+
+    if (Auth::attempt($validated)){
+        $request->session()->regenerate();
+
+        return redirect()->route('maindashboard');
+    }
+
+    throw ValidationException::withMessages([
+'credentials' => 'Wrong username or password'
+    ]);
+
  }
 
     public function logout (Request $request)
@@ -61,5 +77,7 @@ class AuthController extends Controller
      return redirect()->route('show.login');
 
  }
+
+
 
 }

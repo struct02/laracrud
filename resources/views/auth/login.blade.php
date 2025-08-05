@@ -1,7 +1,7 @@
 <x-layout>
 <h1>Login page</h1>
 
-<form method="" action="" class="w-50 mx-auto">
+<form method="POST" action="{{route('login')}}" class="w-50 mx-auto">
     @csrf
 
   <div class="form-group">
@@ -15,5 +15,16 @@
   </div>
   
   <button type="submit" class="btn btn-primary mt-2">Submit</button>
+
+  
+  @if ($errors->any())
+  <ul>
+    @foreach ($errors->all() as $error)
+        
+    <li>{{ $error }}</li>
+     
+    @endforeach
+  </ul>
+  @endif
 </form>
 </x-layout>
