@@ -12,6 +12,11 @@ class ParticipantController extends Controller
         return view('ourteam.participant');
     }
 
+
+      public function newUserview(){
+        return view('ourteam.index');
+    }
+
     public function createParticipant(Request $request){
 
         $post = new Participant();

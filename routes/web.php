@@ -16,11 +16,14 @@ return view('about', ["greetings"=>"Good morning"]);
 });
 
 
-Route::get('/team', function(){
+// Route::get('/index', function(){
 
-return view('ourteam.index');
+// return view('ourteam.index');
 
-});
+// });
+
+
+Route::get('/index', [ParticipantController::class, 'newUserview'])->name('maindashboard');
 
 
 
