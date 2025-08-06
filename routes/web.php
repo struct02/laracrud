@@ -40,8 +40,9 @@ Route::get('/create', [ProductsController::class, 'addProduct']);
 // 
 Route::post('/create-post', [ProductsController::class, 'createProduct'])->name('post.create');
 
+// auth middleware used to protect participant page from being accessed by users that are not logged in
+Route::get('/participant', [ParticipantController::class, 'addParticipant'])->middleware('auth');
 
-Route::get('/participant', [ParticipantController::class, 'addParticipant']);
 
 Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
 
