@@ -22,16 +22,31 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+     
+     {{-- @guest prevents items from showing when user is logged in --}}
+    @guest 
       <a class="nav-item nav-link" href="/about">About Us</a>
       <a class="nav-item nav-link" href="/team">Our team</a>
-      <a class="nav-item nav-link" href="/create">Create Member</a>
-      <a class="nav-item nav-link" href="/participant">New Participant</a>
+
+ 
        <a class="nav-item nav-link" href="/login">Login</a>
        <a class="nav-item nav-link" href="/register">Register</a>
+       @endguest
+      
+
+{{-- @auth is used to display items only when the user is logged in --}}
+       @auth
+       <a class="nav-item nav-link" href="/create">Create Member</a>
+  
+ 
+       <a class="nav-item nav-link" href="/participant">New Participant</a>
        <form action="{{route('logout')}}" method="POST">
         @csrf
         <button class="btn btn-primary">Logout User</button>
        </form>
+       <a class="nav-item nav-link" href="#">Welcome: {{Auth::user()->name}}</a>
+
+       @endauth
 
       {{-- This route was taking from the web.php file it is unique name given to the route, it can be anything even a single word instead show.login show or show1, etc. --}}
         <a class="nav-item nav-link" href="{{route('show.login')}}">Test Route</a>

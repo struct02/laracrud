@@ -63,7 +63,7 @@ class AuthController extends Controller
     }
 
     throw ValidationException::withMessages([
-'credentials' => 'Wrong username or password'
+'credentials' => 'Incorrect username or password'
     ]);
 
  }
