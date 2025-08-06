@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\AuthController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,8 +24,7 @@ return view('about', ["greetings"=>"Good morning"]);
 // });
 
 
-// dashboard routes
-Route::get('/index', [ParticipantController::class, 'newUserview'])->name('maindashboard');
+
 
 
 
@@ -35,19 +35,19 @@ Route::get('/index', [ParticipantController::class, 'newUserview'])->name('maind
 
 // });
 
+
+
+Route::middleware('auth')->group(function (){
+
 Route::get('/create', [ProductsController::class, 'addProduct']);
-
-// 
 Route::post('/create-post', [ProductsController::class, 'createProduct'])->name('post.create');
-
-// auth middleware used to protect participant page from being accessed by users that are not logged in
-Route::get('/participant', [ParticipantController::class, 'addParticipant'])->middleware('auth');
-
-
+Route::get('/participant', [ParticipantController::class, 'addParticipant']);
 Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
-
 Route::get('/participants', [ParticipantController::class, 'viewParticipants']);
+// dashboard routes
+Route::get('/index', [ParticipantController::class, 'newUserview'])->name('maindashboard');
 
+});
 
 //Routes for Registration, Login and Authentication
 Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
