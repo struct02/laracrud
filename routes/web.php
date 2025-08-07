@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+
+
 
 
 Route::get('/', function () {
@@ -68,3 +73,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 //Complete login and registration implemented as well as all routes protected
+
+
+//Forgot password view
+Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
+
+Route::post('/forgot-password', [ResetPasswordController::class, 'passwordEmail']);
+
+
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'passwordReset'])->middleware('guest')->name('password.reset');
+
+
+
+ 
+Route::post('/reset-password', [ResetPasswordController::class, 'passwordUpdate'])->middleware('guest')->name('password.update');

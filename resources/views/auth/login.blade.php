@@ -27,4 +27,6 @@
   </ul>
   @endif
 </form>
+
+<a href="{{route('password.request')}}">Forgot Password</a>
 </x-layout>
