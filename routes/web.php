@@ -65,3 +65,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //End of route implementation for various pages as well as login and register pages, the Route:post register and Route:post login were not implemented at this point
 // This is a boilerplate to spawn up simple route pages. No Authentication implemented at this point
+
+
+//Complete login and registration implemented as well as all routes protected
