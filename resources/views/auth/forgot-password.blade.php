@@ -1,9 +1,17 @@
 <x-layout>
 <h1>Password Reset</h1>
 
-@if (session('status'))
-<div>{{session('status')}}</div>
-@endif
+
+
+  @if ($errors->any())
+  <ul>
+    @foreach ($errors->all() as $error)
+        
+    <li>{{ $error }}</li>
+     
+    @endforeach
+  </ul>
+  @endif
 
 <form method="POST" action="{{route('password.request')}}" class="w-50 mx-auto">
     @csrf
