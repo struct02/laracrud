@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Participant;
+use Illuminate\Support\Facades\Storage;
 
 
 class ParticipantController extends Controller
@@ -19,11 +20,43 @@ class ParticipantController extends Controller
 
     public function createParticipant(Request $request){
 
+         $request->validate([
+                'image' => 'max:10048', // Max 2MB
+                 'prodname' => 'required', 
+            ], [
+
+            // Custom message rather than using the internally generated commands
+        'prodname.required' => 'The name of participant is required',
+        
+    ]);
+
+             // Create the uploads directory if it doesn't exist
+    $uploadPath = public_path('uploads');
+    if (!file_exists($uploadPath)) {
+        mkdir($uploadPath, 0755, true);
+    }
+    // Store the image
+    if ($request->file('image')) {
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move($uploadPath, $imageName);
+
         $post = new Participant();
         $post->name = $request->prodname;
         $post->description = $request->proddesc;
+        $post->image = $imageName;
         $post->save();
         return back()->with('post_created', 'Post created successfully');
+
+         }else{
+        $imageName = '';
+        $post = new Participant();
+        $post->name = $request->prodname;
+        $post->description = $request->proddesc;
+        $post->image = $imageName;
+        $post->save();
+        return back()->with('post_created', 'Post created successfully');
+
+         }
 
     }
 

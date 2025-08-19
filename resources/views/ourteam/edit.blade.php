@@ -13,12 +13,12 @@
 @method('PUT')
 <div class="w-50 mx-auto mt-5">
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+  <label for="exampleFormControlInput1" class="form-label">Participant Name</label>
   <input type="text" class="form-control" id="exampleFormControlInput1" name="prodname" placeholder="" value="{{$participant->name}}">
 </div>
 
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Product Description</label>
+  <label for="exampleFormControlTextarea1" class="form-label">Participant Description</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="proddesc">{{$participant->description}}</textarea>
 
     <button type="submit" class="btn btn-primary mb-3 mt-3">Update Participant</button>

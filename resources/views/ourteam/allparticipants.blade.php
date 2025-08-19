@@ -26,7 +26,7 @@
 <tbody>
     @foreach ($part as $post)
 <tr>
-    <td>{{$post->id}}</td>
+    <td><div style="background-image:url('uploads/{{$post->image}}'); background-size:cover; width:100px; height:100px"></div></td>
     <td>{{$post->name}}</td>
     <td>{{$post->description}}</td>
     <td><a href="{{route('editparticipant', ['participant' => $post->id])}}">Edit</a></td>
