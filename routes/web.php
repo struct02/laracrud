@@ -48,7 +48,10 @@ Route::get('/create', [ProductsController::class, 'addProduct']);
 Route::post('/create-post', [ProductsController::class, 'createProduct'])->name('post.create');
 Route::get('/participant', [ParticipantController::class, 'addParticipant']);
 Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
-Route::get('/participants', [ParticipantController::class, 'viewParticipants']);
+Route::get('/participants', [ParticipantController::class, 'viewParticipants'])->name('rxx');
+//edit
+Route::get('/participants/{participant}/edit', [ParticipantController::class, 'edit'])->name('editparticipant');
+Route::put('/participants/{participant}/update', [ParticipantController::class, 'update'])->name('updateparticipant');
 // dashboard routes
 Route::get('/index', [ParticipantController::class, 'newUserview'])->name('maindashboard');
 

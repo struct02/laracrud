@@ -32,7 +32,38 @@ class ParticipantController extends Controller
      public function viewParticipants(){
 
         $part = Participant::orderBy('id','DESC')->get();
+
         return view('ourteam.allparticipants', compact('part'));
         //compact in this context takes the variable 'part' and displays the value in a table
+    }
+
+       public function edit(Participant $participant){
+
+         return view('ourteam.edit', ['participant' => $participant]);
+
+        
+    }
+
+         public function update(Participant $participant, Request $request){
+
+     $request->validate([
+'prodname' => 'required',
+'proddesc' => 'required'
+     ]);
+
+
+     $participant->update([
+
+        'name' => $request->prodname,
+        'description' => $request->proddesc
+
+
+     ]);
+
+        //return back()->with('post_created', 'Post created successfully');
+
+    return redirect()->route('rxx')->with('success', 'Data Updated Successfully');
+
+        
     }
 }

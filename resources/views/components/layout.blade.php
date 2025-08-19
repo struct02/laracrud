@@ -36,15 +36,16 @@
 
 {{-- @auth is used to display items only when the user is logged in --}}
        @auth
+       <a class="nav-item nav-link" href="#">Welcome: {{Auth::user()->name}}</a>
        <a class="nav-item nav-link" href="/create">Create Member</a>
   
- 
        <a class="nav-item nav-link" href="/participant">New Participant</a>
+       <a class="nav-item nav-link" href="/participants">All Participants</a>
        <form action="{{route('logout')}}" method="POST">
         @csrf
         <button class="btn btn-primary">Logout User</button>
        </form>
-       <a class="nav-item nav-link" href="#">Welcome: {{Auth::user()->name}}</a>
+       
 
        @endauth
 
