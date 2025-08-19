@@ -49,6 +49,8 @@ Route::post('/create-post', [ProductsController::class, 'createProduct'])->name(
 Route::get('/participant', [ParticipantController::class, 'addParticipant']);
 Route::post('/create-participant', [ParticipantController::class, 'createParticipant'])->name('post.participant');
 Route::get('/participants', [ParticipantController::class, 'viewParticipants'])->name('rxx');
+
+Route::delete('/{id}/delete', [ParticipantController::class, 'destroy'])->name('post.delete');
 //edit
 Route::get('/participants/{participant}/edit', [ParticipantController::class, 'edit'])->name('editparticipant');
 Route::put('/participants/{participant}/update', [ParticipantController::class, 'update'])->name('updateparticipant');

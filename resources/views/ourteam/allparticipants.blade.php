@@ -16,6 +16,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Edit</th>
+             <th>Delete</th>
 </tr>
 </thead>
 <tbody>
@@ -29,6 +30,13 @@
     <td>{{$post->name}}</td>
     <td>{{$post->description}}</td>
     <td><a href="{{route('editparticipant', ['participant' => $post->id])}}">Edit</a></td>
+    <td><form action="{{route('post.delete', $post->id) }}" method="POST">
+    @csrf
+
+@method('delete')
+<button type="submit" onclick="return confirm('Are you sure you want to delete')">Del</button>
+</form>
+</td>
 </tr>
 @endforeach
 </tbody>

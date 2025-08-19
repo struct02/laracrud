@@ -66,4 +66,13 @@ class ParticipantController extends Controller
 
         
     }
+
+        public function destroy($id){
+
+        $part = Participant::findOrFail($id);
+        $part->delete();
+        return redirect()->route('rxx')->with('success', 'Post deleted succesfully');
+        
+    }
+
 }
